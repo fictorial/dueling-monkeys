@@ -1,0 +1,34 @@
+- automatching
+    - support picking players that are closest to requestor's skill level
+        - use Elo rating for skill level
+
+- support > 2 players
+    - match keys {pN, nameN, statsN}
+    - how to configure "start after N have joined"?
+    - how to configure max players for rules of play?
+        - part of automatch params?
+    - after match: only update elo rating if 2 players
+
+- direct matchmaking
+    - names are non-unique though; what to do if > 1 user is found?
+        - would be good to support a way to support "friends"
+    - queue/channel for each user so challenges can be sent
+    - what about blocking people?
+    - can of worms
+    - after match:
+        - do not update ratings
+        - do not transfer coins
+
+- store "important" match events?
+    - keep the most recent 10K or something
+    - allow client to ask server for match events after some id thereafter
+    - only real thing a client can do when opponent goes offline is pause the
+      game which is not a great ux
+
+- offer different products for each platform
+    - store products as hash of platform => JSON([{id,coins}])
+
+- online tournaments
+    - group 8 random players in a sit-and-go
+    - location based using Redis' GEO commands for grouping
+backup completed messages offsite (e.g. aws)
